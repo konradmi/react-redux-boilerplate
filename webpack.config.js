@@ -1,10 +1,10 @@
-var webpack = require('webpack');
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const VENDOR_LIBS = [
-                     'react', 'redux', 'react-redux', 'react-dom',
-                    ]
+const buildUtils = require('./build/utils')
+
+const VENDOR_LIBS = buildUtils.listDependencies()
 
 module.exports = {
   entry: {
@@ -34,11 +34,11 @@ module.exports = {
   plugins: [
     // Remove vendor libs from the project's bundle. They will be imported in a seperate bundle
     new webpack.optimize.CommonsChunkPlugin({
-    	names: ['vendor', 'react', 'redux', 'react_redux', 'react_dom', 'manifest']
+    	names: ['vendor', 'manifest']
     }),
     // Include the created bundles automatically in index.html
     new HtmlWebpackPlugin({
-    	template: 'src/index.html'
+    	template: 'build/index.html'
     }),
     // Define env vars
     new webpack.DefinePlugin({

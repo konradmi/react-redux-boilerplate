@@ -1,6 +1,7 @@
-const webpack = require('webpack');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack')
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
 
 const buildUtils = require('./build/utils')
 
@@ -26,9 +27,12 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        use: ['style-loader', 'css-loader'],
-        test: /\.css$/
-      }
+        loader: ExtractTextWebpackPlugin.extract({ 
+          loader: 'css-loader!sass-loader'
+        }),
+        test: /\.scss$/,
+        exclude: /node_modules/
+      },
     ]
   },
   plugins: [
@@ -43,6 +47,8 @@ module.exports = {
     // Define env vars
     new webpack.DefinePlugin({
     	'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
+    }),
+    // extract all styles to style.css instead of including them in the bundle
+    new ExtractTextWebpackPlugin('style.[contenthash].css')
   ]
 };

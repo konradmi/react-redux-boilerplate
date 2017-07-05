@@ -14,6 +14,9 @@ module.exports = {
     // Extract vendor libs to a seperate bundle
     vendor: VENDOR_LIBS
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     // add a hash to the name so that it's managed correctly by a browser's cache
@@ -23,7 +26,7 @@ module.exports = {
     rules: [
       {
         use: 'babel-loader',
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/
       },
       {

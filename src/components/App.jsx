@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import { testAction } from '../actions'
+import { testAction } from '../actions/test-actions'
 
 import './App.scss'
 
@@ -18,7 +18,7 @@ import './App.scss'
 export default class App extends PureComponent {
 
   componentDidMount() {
-    this.props.testAction()
+    this.props.testAction('Live and kicking !!!!')
   }
 
   render() {

@@ -1,9 +1,7 @@
+import { handleActions } from 'redux-actions'
+
 import { TEST } from '../types'
 
-export default (state={}, action) => {
-  switch(action.type) {
-  	case TEST:
-  	  return {...state, text: action.payload}
-  }
-  return state
-}
+export default handleActions({
+  [TEST]: (state, action) => ({...state, text: action.payload})
+}, {})

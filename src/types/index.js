@@ -1,3 +1,1 @@
-const TEST = 'TEST'
-
-export default TEST
+export const TEST = 'TEST'

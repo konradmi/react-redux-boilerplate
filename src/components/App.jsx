@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import testAction from '../actions/test-actions'
+import { testAction } from '../actions/test-actions'
 
 import './App.scss'
 

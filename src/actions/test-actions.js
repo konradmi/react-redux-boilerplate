@@ -1,7 +1,5 @@
 import { createAction } from 'redux-actions'
 
-import TEST from '../types'
+import { TEST } from '../types'
 
-const testAction = createAction(TEST)
-
-export default testAction
+export const testAction = createAction(TEST)

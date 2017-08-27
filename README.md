@@ -2,8 +2,12 @@
 
 ## Setup
 
-Run `npm install`
+Install node.js version 7
 
-Run `npm run serve`
+Install yarn package manager
+
+Run `yarn install`
+
+Run `yarn run serve`
 
 Hit `http://localhost:8080`

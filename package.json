@@ -48,6 +48,6 @@
     "style-loader": "^0.13.1",
     "webpack": "^3.8.1",
     "webpack-dev-middleware": "^1.10.2",
-    "webpack-dev-server": "^2.2.0-rc.0"
+    "webpack-dev-server": "^2.9.3"
   }
 }
